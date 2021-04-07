@@ -1,0 +1,21 @@
+<form [formGroup]="calculationForm" (ngSubmit)="onSubmit()">
+  <div formArrayName="arr" *ngFor="let a of calculationForm.get('arr').controls; let i = index">
+    <div [formGroupName]="i">
+      <label for="name">First value:</label>
+      <input type="text" name="leftOperand" formControlName="leftOperand">
+      <select style="margin-left: 10px;" name="operator" formControlName="operator">
+        <option selected value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+      </select>
+      <label style="margin-left: 10px;" for="pay">Second Value:</label>
+      <input type="text" name="rightOperand" formControlName="rightOperand">
+      <label style="margin-left: 10px;" for="pay">= </label>
+      <input type="text" name="result" formControlName="result">
+    </div>
+  </div>
+  <br>
+  <!-- <button type="button" (click)="addItem()" style="margin-right: 5px;">Add Calculation</button> -->
+  <button type="submit">Count</button>
+</form>
